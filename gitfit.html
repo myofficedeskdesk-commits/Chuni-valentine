@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitFit | Progress</title>
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; font-family: sans-serif; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { border-bottom: 1px solid #30363d; padding-bottom: 20px; margin-bottom: 20px; }
+        
+        /* The Contribution Grid */
+        .grid-container { 
+            background: #161b22; 
+            border: 1px solid #30363d; 
+            padding: 15px; 
+            border-radius: 6px; 
+            overflow-x: auto; 
+        }
+        .grid { display: grid; grid-template-columns: repeat(52, 10px); grid-template-rows: repeat(7, 10px); gap: 3px; }
+        .sq { width: 10px; height: 10px; background: #21262d; border-radius: 2px; }
+        .sq.active { background: #39d353; } /* GitHub Green */
+
+        button { background: #238636; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+        button:hover { transform: scale(1.05); } /* Similar to your Valentine button hover */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GitFit / Workout-Commits</h1>
+            <button onclick="commitWorkout()">Commit Workout 🚀</button>
+        </div>
+        <div class="grid-container">
+            <div class="grid" id="fitnessGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        const grid = document.getElementById('fitnessGrid');
+        // Generate a full year of squares
+        for (let i = 0; i < 364; i++) {
+            const sq = document.createElement('div');
+            sq.className = 'sq';
+            grid.appendChild(sq);
+        }
+
+        function commitWorkout() {
+            const squares = document.querySelectorAll('.sq:not(.active)');
+            if (squares.length > 0) {
+                squares[0].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
